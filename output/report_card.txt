@@ -1,0 +1,79 @@
+Regression Analysis Report
+==========================
+
+Summary Statistics:
+             avgsal     totrain       grant      employ         sales       union         year
+count    341.000000  341.000000  341.000000  341.000000  3.410000e+02  341.000000   341.000000
+mean   18854.891496   25.049853    0.134897   57.343109  6.263792e+06    0.219941  1988.032258
+std     6883.526322   47.314596    0.342116   62.886005  8.203498e+06    0.414815     0.816458
+min     4237.000000    0.000000    0.000000    4.000000  1.100000e+05    0.000000  1987.000000
+25%    14110.000000    1.000000    0.000000   15.000000  1.527000e+06    0.000000  1987.000000
+50%    17500.000000    8.000000    0.000000   30.000000  2.900000e+06    0.000000  1988.000000
+75%    22000.000000   25.000000    0.000000   74.000000  8.000000e+06    0.000000  1989.000000
+max    42583.000000  350.000000    1.000000  350.000000  5.400000e+07    1.000000  1989.000000
+
+Correlation Matrix:
+           avgsal   totrain     grant    employ     sales     union      year
+avgsal   1.000000  0.005262  0.019468 -0.019378  0.148715 -0.008242  0.130816
+totrain  0.005262  1.000000  0.216532  0.704037  0.626147  0.143600  0.153982
+grant    0.019468  0.216532  1.000000  0.038581  0.032144  0.039019  0.173909
+employ  -0.019378  0.704037  0.038581  1.000000  0.782575  0.277505  0.059130
+sales    0.148715  0.626147  0.032144  0.782575  1.000000  0.314206  0.081562
+union   -0.008242  0.143600  0.039019  0.277505  0.314206  1.000000 -0.003642
+year     0.130816  0.153982  0.173909  0.059130  0.081562 -0.003642  1.000000
+
+Correlation between 'avgsal' and 'totrain': 0.005261630714198234
+
+
+Regression Results:
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 avgsal   R-squared:                       0.087
+Model:                            OLS   Adj. R-squared:                  0.071
+Method:                 Least Squares   F-statistic:                     5.313
+Date:                Fri, 14 Jun 2024   Prob (F-statistic):           2.99e-05
+Time:                        19:26:42   Log-Likelihood:                -3481.2
+No. Observations:                 341   AIC:                             6976.
+Df Residuals:                     334   BIC:                             7003.
+Df Model:                           6                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const      -2.011e+06   8.98e+05     -2.239      0.026   -3.78e+06   -2.44e+05
+totrain       -9.3660     11.435     -0.819      0.413     -31.859      13.127
+grant        245.7969   1106.143      0.222      0.824   -1930.089    2421.682
+employ       -33.8855     10.366     -3.269      0.001     -54.277     -13.494
+sales          0.0004   7.28e-05      5.032      0.000       0.000       0.001
+union       -836.1289    922.311     -0.907      0.365   -2650.399     978.141
+year        1020.9523    451.845      2.260      0.024     132.132    1909.773
+==============================================================================
+Omnibus:                       41.668   Durbin-Watson:                   0.661
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               53.408
+Skew:                           0.908   Prob(JB):                     2.53e-12
+Kurtosis:                       3.679   Cond. No.                     2.58e+10
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.58e+10. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+Variance Inflation Factors (VIF):
+const      6.248589e+06
+totrain    2.260168e+00
+grant      1.105809e+00
+employ     3.281430e+00
+sales      2.756959e+00
+union      1.130251e+00
+year       1.050889e+00
+
+Breusch-Pagan test for heteroscedasticity:
+LM Statistic: 1.9442931307227613, p-value: 0.07318399598737457
+
+
+Durbin-Watson test for autocorrelation:
+Durbin-Watson Statistic: 0.661193078954261
+
+
+Regression Diagnostics Plots have been saved to the 'output/plots' directory.
